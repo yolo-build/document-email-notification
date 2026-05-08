@@ -32,7 +32,7 @@ export default function EmailNotification({
 
         {/* ── Hero Card ── */}
         <div className="mx-4 sm:mx-6 mb-4 rounded-2xl overflow-hidden" style={{ background: '#0D0821' }}>
-          <div className="flex flex-col items-center px-8 py-10 gap-5" style={{ background: 'linear-gradient(160deg, #1e3a8a 0%, #2d1b69 55%, #1e1654 100%)' }}>
+          <div className="flex flex-col items-center px-8 py-10 gap-5" style={{ background: dark ? 'linear-gradient(160deg, #1e3a8a 0%, #2d1b69 55%, #1e1654 100%)' : 'linear-gradient(160deg, #ef4444 0%, #b91c1c 50%, #450a0a 100%)' }}>
 
             {/* Pen icon box */}
             <div
