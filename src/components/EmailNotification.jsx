@@ -7,6 +7,8 @@ export default function EmailNotification({
   senderEmail = 'awal.rahandito@privy.id',
   recipientName = 'mama cici',
   documentTitle = '862499-PID-FIN-PAY-I-26-PAID',
+  messageBody = 'Please review the updated Q3 vendor agreement. Signature required by end of week.',
+  documentId = 'DG-2024-Q3-VNDR-8821',
   reviewUrl = '#',
 }) {
   const dark = theme === 'dark'
@@ -69,28 +71,51 @@ export default function EmailNotification({
               : 'bg-white border-gray-100'
           }`}
         >
-          <p className={`font-semibold text-sm transition-colors duration-300 ${dark ? 'text-white' : 'text-gray-900'}`}>
-            {senderName}
-          </p>
-          <a
-            href={`mailto:${senderEmail}`}
-            className="text-sm font-medium"
-            style={{ color: '#008AFF' }}
-          >
-            {senderEmail}
-          </a>
+          {/* Sender row */}
+          <div className="flex items-center gap-3">
+            {/* Avatar */}
+            <div
+              className={`w-10 h-10 rounded-xl flex-shrink-0 flex items-center justify-center text-white font-semibold text-base transition-colors duration-300 ${
+                dark ? 'bg-[#2d3748]' : 'bg-gray-200'
+              }`}
+            >
+              <span className={dark ? 'text-white' : 'text-gray-700'}>
+                {senderName.charAt(0).toUpperCase()}
+              </span>
+            </div>
+            {/* Name + email */}
+            <div className="flex flex-col">
+              <p className={`font-semibold text-sm leading-5 transition-colors duration-300 ${dark ? 'text-white' : 'text-gray-900'}`}>
+                {senderName}
+              </p>
+              <a
+                href={`mailto:${senderEmail}`}
+                className="text-sm font-medium leading-5"
+                style={{ color: '#008AFF' }}
+              >
+                {senderEmail}
+              </a>
+            </div>
+          </div>
 
-          <div className="mt-4 space-y-1">
-            <p className={`text-sm transition-colors duration-300 ${dark ? 'text-gray-300' : 'text-gray-700'}`}>
-              {recipientName},
-            </p>
-            <p className={`text-sm transition-colors duration-300 ${dark ? 'text-gray-300' : 'text-gray-700'}`}>
-              Complete with Privy: {documentTitle}
+          {/* Quoted message */}
+          <div
+            className={`mt-4 pl-4 border-l-2 transition-colors duration-300 ${
+              dark ? 'border-white/20' : 'border-gray-200'
+            }`}
+          >
+            <p className={`text-sm italic leading-6 transition-colors duration-300 ${dark ? 'text-gray-300' : 'text-gray-600'}`}>
+              &ldquo;{messageBody}&rdquo;
             </p>
           </div>
 
-          <p className={`mt-4 text-sm transition-colors duration-300 ${dark ? 'text-gray-300' : 'text-gray-700'}`}>
-            Thank You, {senderName}
+          {/* Divider */}
+          <hr className={`my-4 transition-colors duration-300 ${dark ? 'border-white/10' : 'border-gray-100'}`} />
+
+          {/* Document ID */}
+          <p className={`text-sm transition-colors duration-300 ${dark ? 'text-gray-400' : 'text-gray-500'}`}>
+            <span className={`font-medium transition-colors duration-300 ${dark ? 'text-gray-200' : 'text-gray-700'}`}>Document ID:</span>{' '}
+            {documentId}
           </p>
         </div>
 
