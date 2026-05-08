@@ -2,17 +2,26 @@ import logoHeader from '../assets/logo-header.png'
 import backgroundFooter from '../assets/bacground-footer.svg'
 
 export default function EmailNotification({
+  theme = 'light',
   senderName = 'Awal Rahandito',
   senderEmail = 'awal.rahandito@privy.id',
   recipientName = 'mama cici',
   documentTitle = '862499-PID-FIN-PAY-I-26-PAID',
   reviewUrl = '#',
 }) {
-  const securityCode = '160EDB1DC34D4A73B276887EBDB342CE7'
+  const dark = theme === 'dark'
 
   return (
-    <div className="min-h-screen bg-gray-100 py-0 sm:py-10 font-sans">
-      <div className="mx-auto w-full max-w-[600px] bg-white shadow-sm">
+    <div
+      className={`min-h-screen py-0 sm:py-10 font-sans transition-colors duration-300 ${
+        dark ? 'bg-[#0d0821]' : 'bg-gray-100'
+      }`}
+    >
+      <div
+        className={`mx-auto w-full max-w-[600px] shadow-sm transition-colors duration-300 ${
+          dark ? 'bg-[#111827]' : 'bg-white'
+        }`}
+      >
 
         {/* ── Logo Header ── */}
         <div className="flex justify-center items-center py-6 px-6">
@@ -53,8 +62,16 @@ export default function EmailNotification({
         </div>
 
         {/* ── Info Card ── */}
-        <div className="mx-4 sm:mx-6 mb-6 rounded-2xl border border-gray-100 bg-white px-6 py-5">
-          <p className="font-semibold text-gray-900 text-sm">{senderName}</p>
+        <div
+          className={`mx-4 sm:mx-6 mb-6 rounded-2xl px-6 py-5 border transition-colors duration-300 ${
+            dark
+              ? 'bg-[#1a2235] border-white/10'
+              : 'bg-white border-gray-100'
+          }`}
+        >
+          <p className={`font-semibold text-sm transition-colors duration-300 ${dark ? 'text-white' : 'text-gray-900'}`}>
+            {senderName}
+          </p>
           <a
             href={`mailto:${senderEmail}`}
             className="text-sm font-medium"
@@ -64,20 +81,27 @@ export default function EmailNotification({
           </a>
 
           <div className="mt-4 space-y-1">
-            <p className="text-gray-700 text-sm">{recipientName},</p>
-            <p className="text-gray-700 text-sm">
+            <p className={`text-sm transition-colors duration-300 ${dark ? 'text-gray-300' : 'text-gray-700'}`}>
+              {recipientName},
+            </p>
+            <p className={`text-sm transition-colors duration-300 ${dark ? 'text-gray-300' : 'text-gray-700'}`}>
               Complete with Privy: {documentTitle}
             </p>
           </div>
 
-          <p className="mt-4 text-gray-700 text-sm">Thank You, {senderName}</p>
+          <p className={`mt-4 text-sm transition-colors duration-300 ${dark ? 'text-gray-300' : 'text-gray-700'}`}>
+            Thank You, {senderName}
+          </p>
         </div>
 
         {/* ── Divider ── */}
-        <hr className="mx-4 sm:mx-6 border-gray-100" />
+        <hr className={`mx-4 sm:mx-6 transition-colors duration-300 ${dark ? 'border-white/10' : 'border-gray-100'}`} />
 
-{/* ── Notes ── */}
-        <div className="relative overflow-hidden px-10 py-5 flex flex-col gap-1" style={{ backgroundImage: `url(${backgroundFooter})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+        {/* ── Notes ── */}
+        <div
+          className="relative overflow-hidden px-10 py-5 flex flex-col gap-1"
+          style={{ backgroundImage: `url(${backgroundFooter})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
+        >
           <p className="font-normal text-base leading-6 tracking-[0.2px] text-[#fdfdfd]">
             Catatan: Pesan ini dikirimkan ke alamat surat elektronik yang tidak dipantau. Jangan balas pesan ini. Jika ada pertanyaan, silakan hubungi kami di helpdesk@privy.id.
           </p>
@@ -87,10 +111,18 @@ export default function EmailNotification({
         </div>
 
         {/* ── Footer ── */}
-        <div className="px-10 py-5 flex items-center justify-between">
+        <div
+          className={`px-10 py-5 flex items-center justify-between transition-colors duration-300 ${
+            dark ? 'bg-[#111827]' : 'bg-white'
+          }`}
+        >
           <div className="flex flex-col">
-            <p className="font-bold text-sm leading-5 tracking-[0.2px] text-[#0d1117]">PT Privy Identitas Digital</p>
-            <p className="font-normal text-sm leading-5 tracking-[0.2px] text-[#1f2329]">Jl. Kemang Raya no. 15 Jakarta Selatan 12730</p>
+            <p className={`font-bold text-sm leading-5 tracking-[0.2px] transition-colors duration-300 ${dark ? 'text-white' : 'text-[#0d1117]'}`}>
+              PT Privy Identitas Digital
+            </p>
+            <p className={`font-normal text-sm leading-5 tracking-[0.2px] transition-colors duration-300 ${dark ? 'text-gray-400' : 'text-[#1f2329]'}`}>
+              Jl. Kemang Raya no. 15 Jakarta Selatan 12730
+            </p>
           </div>
           <div className="flex gap-3 items-center">
             <a href="#" className="w-7 h-7 rounded-full bg-[#167eef] flex items-center justify-center">
