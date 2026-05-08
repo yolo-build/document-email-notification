@@ -1,3 +1,5 @@
+import logoHeader from '../assets/logo-header.png'
+
 export default function EmailNotification({
   senderName = 'Awal Rahandito',
   senderEmail = 'awal.rahandito@privy.id',
@@ -13,25 +15,7 @@ export default function EmailNotification({
 
         {/* ── Logo Header ── */}
         <div className="flex justify-center items-center py-6 px-6">
-          <div className="flex items-center gap-2">
-            {/* Privy shield icon */}
-            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M14 2L4 6.5V13.5C4 18.75 8.4 23.67 14 25C19.6 23.67 24 18.75 24 13.5V6.5L14 2Z"
-                fill="#008AFF"
-              />
-              <path
-                d="M11 13.5L13 15.5L17.5 11"
-                stroke="white"
-                strokeWidth="1.8"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-            <span className="text-2xl font-semibold tracking-tight text-gray-900">
-              privy
-            </span>
-          </div>
+          <img src={logoHeader} alt="Privy" className="h-8" />
         </div>
 
         {/* ── Hero Card ── */}
@@ -59,8 +43,8 @@ export default function EmailNotification({
             {/* CTA Button */}
             <a
               href={reviewUrl}
-              className="inline-block px-8 py-3 rounded-full font-semibold text-white text-sm transition-opacity hover:opacity-90 active:opacity-80"
-              style={{ background: '#008AFF' }}
+              className="block w-full text-center py-3 rounded-[8px] font-medium text-base leading-6 transition-opacity hover:opacity-90 active:opacity-80"
+              style={{ background: '#008AFF', color: '#FDFDFD', letterSpacing: '0.4px' }}
             >
               Review Document
             </a>
