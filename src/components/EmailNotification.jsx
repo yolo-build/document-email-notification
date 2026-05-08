@@ -91,53 +91,48 @@ export default function EmailNotification({
         {/* ── Divider ── */}
         <hr className="mx-4 sm:mx-6 border-gray-100" />
 
-        {/* ── Security Section ── */}
-        <div className="px-6 sm:px-8 py-6 space-y-4 text-xs text-gray-500 leading-relaxed">
-          <div>
-            <p className="font-semibold text-gray-700 mb-1">Do Not Share This Email</p>
-            <p>
-              This email contains a secure link to Privy. Please do not share this email,
-              link, or access code with others.
-            </p>
-          </div>
-
-          <div>
-            <p className="font-semibold text-gray-700 mb-1">Alternate Signing Method</p>
-            <p>
-              Visit Privy.com, click &apos;Access Documents&apos;, and enter the security code:
-            </p>
-            <p className="mt-1 font-mono text-gray-600 break-all">{securityCode}</p>
-          </div>
+{/* ── Notes ── */}
+        <div className="relative overflow-hidden bg-[#002c5c] px-10 py-5 flex flex-col gap-1">
+          <p className="font-normal text-base leading-6 tracking-[0.2px] text-[#fdfdfd]">
+            Catatan: Pesan ini dikirimkan ke alamat surat elektronik yang tidak dipantau. Jangan balas pesan ini. Jika ada pertanyaan, silakan hubungi kami di helpdesk@privy.id.
+          </p>
+          <p className="font-normal text-xs leading-4 tracking-[0.2px] text-[#a0abb9]">
+            {`Note: Don't reply to this email. This email is sent from an unmonitored e-mail address. If you have questions, please reach us at helpdesk@privy.id`}
+          </p>
         </div>
 
-        {/* ── Divider ── */}
-        <hr className="mx-4 sm:mx-6 border-gray-100" />
-
-        {/* ── Legal Footer ── */}
-        <div className="px-6 sm:px-8 py-6 text-xs text-gray-400 leading-relaxed space-y-3">
-          <p>Copyright &copy; 2026 Privy, Inc. All rights reserved. 221 Main Street, Suite 1550 San Francisco, CA 94105</p>
-
-          <p>
-            This message was sent to you by{' '}
-            <span className="text-gray-500">{senderName}</span> who is using the Privy
-            Electronic Signature Service. If you would rather not receive email from this
-            sender you may contact the sender with your request.
-          </p>
-
-          {/* Links */}
-          <div className="flex flex-wrap gap-x-4 gap-y-1 text-gray-500">
-            {['Contact Us', 'Terms of Use', 'Privacy', 'Support', 'Report Email'].map((link) => (
-              <a key={link} href="#" className="hover:underline">
-                {link}
-              </a>
-            ))}
+        {/* ── Footer ── */}
+        <div className="px-10 py-5 flex items-center justify-between">
+          <div className="flex flex-col">
+            <p className="font-bold text-sm leading-5 tracking-[0.2px] text-[#0d1117]">PT Privy Identitas Digital</p>
+            <p className="font-normal text-sm leading-5 tracking-[0.2px] text-[#1f2329]">Jl. Kemang Raya no. 15 Jakarta Selatan 12730</p>
           </div>
-
-          <p>
-            <a href="#" className="text-gray-500 hover:underline">
-              Download the Privy App
+          <div className="flex gap-3 items-center">
+            <a href="#" className="w-7 h-7 rounded-full bg-[#167eef] flex items-center justify-center">
+              <svg width="8" height="15" viewBox="0 0 8 15" fill="white" xmlns="http://www.w3.org/2000/svg">
+                <path d="M5.2 2.5H7V0H5C3.34 0 2 1.34 2 3v1.5H0V7h2v8h2.5V7H6.5L7 4.5H4.5V3c0-.28.22-.5.5-.5H5.2z"/>
+              </svg>
             </a>
-          </p>
+            <a href="#" className="w-7 h-7 rounded-full bg-black flex items-center justify-center">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="white" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8.19 5.93 13.16 0h-1.2L7.65 5.15 4.2 0H0l5.22 7.78L0 14h1.2l4.56-5.44L9.4 14h4.2L8.19 5.93ZM6.36 7.85l-.52-.77L1.64.91H3.6l6.37 9.22H7.97L6.36 7.85Z"/>
+              </svg>
+            </a>
+            <a href="#" className="w-7 h-7 rounded-full bg-[#fe046d] flex items-center justify-center">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="white" xmlns="http://www.w3.org/2000/svg">
+                <path d="M7 1.26c1.87 0 2.09.01 2.83.04.68.03 1.05.14 1.3.24.33.13.56.28.8.52.25.25.4.48.52.8.1.25.21.62.24 1.3.03.74.04.96.04 2.84s-.01 2.09-.04 2.83c-.03.68-.14 1.05-.24 1.3-.13.33-.28.56-.52.8-.25.25-.48.4-.8.52-.25.1-.62.21-1.3.24-.74.03-.96.04-2.83.04s-2.09-.01-2.83-.04c-.68-.03-1.05-.14-1.3-.24a2.17 2.17 0 0 1-.8-.52 2.17 2.17 0 0 1-.52-.8c-.1-.25-.21-.62-.24-1.3C1.27 9.09 1.26 8.87 1.26 7s.01-2.09.04-2.83c.03-.68.14-1.05.24-1.3.13-.33.28-.56.52-.8.25-.25.48-.4.8-.52.25-.1.62-.21 1.3-.24.74-.03.96-.04 2.84-.04M7 0C5.1 0 4.87.01 4.12.04c-.75.03-1.27.15-1.72.31a3.47 3.47 0 0 0-1.25.81A3.47 3.47 0 0 0 .34 2.4C.18 2.85.06 3.37.03 4.12.01 4.87 0 5.1 0 7s.01 2.13.04 2.88c.03.75.15 1.27.31 1.72.18.46.42.86.81 1.25.39.39.79.63 1.25.81.45.16.97.28 1.72.31C4.87 13.99 5.1 14 7 14s2.13-.01 2.88-.04c.75-.03 1.27-.15 1.72-.31.46-.18.86-.42 1.25-.81.39-.39.63-.79.81-1.25.16-.45.28-.97.31-1.72C13.99 9.13 14 8.9 14 7s-.01-2.13-.04-2.88c-.03-.75-.15-1.27-.31-1.72a3.47 3.47 0 0 0-.81-1.25A3.47 3.47 0 0 0 11.6.34C11.15.18 10.63.06 9.88.03 9.13.01 8.9 0 7 0zm0 3.4a3.6 3.6 0 1 0 0 7.2A3.6 3.6 0 0 0 7 3.4zm0 5.94a2.34 2.34 0 1 1 0-4.68 2.34 2.34 0 0 1 0 4.68zM10.74 2.4a.84.84 0 1 0 0 1.68.84.84 0 0 0 0-1.68z"/>
+              </svg>
+            </a>
+            <a href="#" className="w-7 h-7 rounded-full bg-[#008aff] flex items-center justify-center">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="white" strokeWidth="1.2" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="7" cy="7" r="6"/>
+                <ellipse cx="7" cy="7" rx="2.5" ry="6"/>
+                <line x1="1" y1="7" x2="13" y2="7"/>
+                <line x1="1.5" y1="4.5" x2="12.5" y2="4.5"/>
+                <line x1="1.5" y1="9.5" x2="12.5" y2="9.5"/>
+              </svg>
+            </a>
+          </div>
         </div>
 
       </div>
