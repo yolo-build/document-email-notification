@@ -1,4 +1,5 @@
 import logoHeader from '../assets/logo-header.png'
+import backgroundFooter from '../assets/bacground-footer.svg'
 
 export default function EmailNotification({
   senderName = 'Awal Rahandito',
@@ -76,7 +77,7 @@ export default function EmailNotification({
         <hr className="mx-4 sm:mx-6 border-gray-100" />
 
 {/* ── Notes ── */}
-        <div className="relative overflow-hidden bg-[#002c5c] px-10 py-5 flex flex-col gap-1">
+        <div className="relative overflow-hidden px-10 py-5 flex flex-col gap-1" style={{ backgroundImage: `url(${backgroundFooter})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
           <p className="font-normal text-base leading-6 tracking-[0.2px] text-[#fdfdfd]">
             Catatan: Pesan ini dikirimkan ke alamat surat elektronik yang tidak dipantau. Jangan balas pesan ini. Jika ada pertanyaan, silakan hubungi kami di helpdesk@privy.id.
           </p>
